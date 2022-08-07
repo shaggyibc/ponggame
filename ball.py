@@ -1,6 +1,8 @@
 from turtle import Screen, Turtle
 import time
+import random
 
+START_MOVE = [10, -10, 5, -5]
 
 class Ball(Turtle):
 
@@ -14,8 +16,16 @@ class Ball(Turtle):
         self.shape("circle")
         self.color("white")
         self.goto(0, 0)
-        self.left(45)
+        self.x_move = random.choice(START_MOVE)
+        self.y_move = random.choice(START_MOVE)
+
+    def move(self):
+        new_x = self.xcor() + self.x_move
+        new_y = self.ycor() + self.y_move
+        self.goto(new_x, new_y)
 
     def bounce(self):
-        angle = self.heading()
-        self.setheading(angle + 90)
+        self.y_move *= -1
+
+    def paddle_bounce(self):
+        self.x_move *= -1

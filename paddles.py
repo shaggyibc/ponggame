@@ -1,5 +1,8 @@
 from turtle import Turtle
+
 POSITION = [(640, 0), (-640, 0)]
+
+
 class Paddles(Turtle):
 
     def __init__(self):
@@ -23,7 +26,6 @@ class Paddles(Turtle):
         new_paddle.goto(positions)
         new_paddle.setheading(90)
         self.paddles.append(new_paddle)
-
 
     def up_right(self):
         self.right_paddle.setheading(90)
